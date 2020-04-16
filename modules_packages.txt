@@ -1,0 +1,38 @@
+modules are python files which implement a set of functions modules are imported through the import command
+
+import urllib.request 
+response = urllib.request.urlopen("http://www.codingdojo.com")
+html = response.read()
+print(html)
+
+def add(x, y):
+    return x + y
+def multiply(x, y):
+    return x * y
+def subtract(x, y):
+    return x - y
+
+import arithmetic
+print(arithmetic.add(5, 8))
+print(arithmetic.subtract(10, 5))
+print(arithmetic.multiply(12, 6))
+
+Note: make sure that the module and the file importing the module are in the same folder/directory.
+
+import urllib.request
+dir(urllib.request)
+
+from my_package.subdirectory import my_functions
+sample_project
+     |_____ python_file.py
+     |_____ my_modules
+               |_____ __init__.py
+               |_____ test_module.py
+               |_____ another_module.py
+               |_____ third_module.py
+
+A package is a collection of modules in directories that give a package hierarchy.
+
+from my_modules import test_module
+__all__ = ["test_module"]
+In Python 3.3+, we only need this file if we need to customize what modules are available to anyone attempting to import the package. For example, if we didn't want another_module or third_module to be accessible for importing, we could override the __all__ variable, like so:
